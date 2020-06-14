@@ -1,0 +1,59 @@
+<nav id="navbarbg" class="navbar navbar-expand-lg navbar-light  navbar-inverse">
+    <button id="navcollapse" class="navbar-toggler" type="button" data-toggle="collapse"
+        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+
+            {% if request.user.is_superuser %}
+            <li>
+                <a id="color" class="navbar-brand" href="{% url 'management:adminsite' %}">
+                    SCHOOL MANAGEMENT SYSTEM
+                </a>
+            </li>
+
+            <li id="color" class="nav-item">
+                <a id="color" class="nav-link" href="{% url 'management:adminsite' %}">Home </a>
+            </li>
+            <li class="nav-item">
+                <a id="color" class="nav-link" href="{% url 'management:AddStaff' %}"> Add STAFF </a>
+            </li>
+            
+            <li class="nav-item">
+                <a id="color" class="nav-link" href="{% url 'management:AddStudent' %}"> Add STUDENT</a>
+            </li>
+            {% else %}
+            <li>
+                <a id="color" class="navbar-brand" href="{% url 'management:portal' %}">
+                    SCHOOL MANAGEMENT SYSTEM
+                </a>
+            </li>
+
+            <li id="color" class="nav-item">
+                <a id="color" class="nav-link" href="{% url 'management:portal' %}">Home </a>
+            </li>
+
+            <li class="nav-item">
+                <a id="color" class="nav-link" href="">About </a>
+            </li>
+            {% endif %}
+
+        </ul>
+
+        {% if request.user.is_authenticated %}
+        <ul class="navbar-nav mr-5">
+            <li class="nav-item"> <a id="navbarlogout" href="{% url 'management:logout' %}">Log Out </a></li>
+        </ul>
+        {% else %}
+        <ul class="navbar-nav mr-5">
+            <ul class="navbar-nav mr-2">
+                <li class="nav-item"> <a id="navbarlogout" href="{% url 'management:adminsite' %}">Admin</a></li>
+            </ul>
+        </ul>
+        {% endif %}
+    </div>
+</nav>

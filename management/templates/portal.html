@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} SMS | HOME {% endblock title %}
+
+
+{% block content %}
+{% include 'navbar.html' %}
+
+{% if request.user.is_anonymous %}
+    <div class="container">
+        <div id="logins" class="row">
+    
+            <div class="col-sm-3"></div>
+            <div id="buttons" class="col-sm-3">
+                <a href="{% url 'management:portal' %}"><button type="button" id="staffbtn" class="staffbtn"> STAFF LOGIN
+                    </button></a>
+            </div>
+    
+            <div id="buttons" class="col-sm-3">
+                <a href="{% url 'management:portal' %}"><button type="button" class="studentbtn">STUDENT LOGIN
+                    </button></a>
+            </div>
+    
+            <div class="col-sm-3"></div>
+        </div>
+    </div>
+
+{% elif request.user.is_student %}
+<br>
+<br>
+
+<div id="intromsg" class="container">
+    <h6 class="display-4">Welcome {{ user }}</h4>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In voluptate delectus nisi 
+        saepe molestiae ad nesciunt suscipit. Id eum totam, eaque accusantium molestiae ipsum 
+        est itaque beatae non assumenda? Rem.</p>
+</div>
+<br>
+<br>
+    <div class="container">
+        <div class="row ">
+            <div class="col-md-4 carditems">
+                <div class="card" style="width: 10rem;">
+                    <img class="card-img-top" src="{% static 'image/profile.png' %}" alt="img not fnd">
+                    <a href="#" class="btn btn-primary cardbtn">Profile</a>
+                </div>
+            </div>
+
+            <div class="col-md-4 carditems">
+                <div class="card" style="width: 10rem;">
+                    <img class="card-img-top" src="{% static 'image/results.png' %}" alt="img not fnd">
+                    <a href="studentresults.html" class="btn btn-primary cardbtn">Check Results</a>
+                </div>
+            </div>
+
+            <div class="col-md-4 carditems ">
+                <div class="card" style="width: 10rem;">
+                    <img class="card-img-top" src="{% static 'image/fees.png' %}" alt="img not fnd">
+                    <a href="#" class="btn btn-primary cardbtn ">School Fees</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row cditems">
+            <div class="col-md-4 carditems">
+                <div class="card" style="width: 10rem;">
+                    <img class="card-img-top" src="{% static 'image/courses.png' %}" alt="img not fnd">
+                    <a href="#" class="btn btn-primary cardbtn">Subjects</a>
+                </div>
+            </div>
+
+            <div class="col-md-4 carditems">
+                <div class="card" style="width: 10rem;">
+                    <img class="card-img-top" src="{% static 'image/event.png' %}" alt="img not fnd">
+                    <a href="#" class="btn btn-primary cardbtn">Up Coming Events</a>
+                </div>
+            </div>
+            
+            <div class="col-md-4 carditems ">
+                <div class="card" style="width: 10rem;">
+                    <img class="card-img-top" src="{% static 'image/tutor.png' %}" alt="img not fnd">
+                    <a href="#" class="btn btn-primary cardbtn ">Tutors</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    
+
+{% elif request.user.is_teacher %}
+
+<br>
+<br>
+
+<div id="intromsg" class="container">
+    <h6 class="display-4">Welcome {{ user }}</h4>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In voluptate delectus nisi 
+        saepe molestiae ad nesciunt suscipit. Id eum totam, eaque accusantium molestiae ipsum 
+        est itaque beatae non assumenda? Rem.</p>
+</div>
+
+<br>
+<br>
+    
+<div class="container">
+    <div class="row ">
+
+        <div class="col-md-4 carditems">
+            <div class="card" style="width: 10rem;">
+                <img class="card-img-top" src="{% static 'image/profile.png' %}" alt="img not fnd">
+                <a href="#" class="btn btn-primary cardbtn">Profile</a>
+            </div>
+        </div>
+
+        <div class="col-md-4 carditems">
+            <div class="card" style="width: 10rem;">
+                <img class="card-img-top" src="{% static 'image/student.jpg' %}" alt="img not fnd">
+                <a href="{% url 'management:studentlist' %}" class="btn btn-primary cardbtn">Students</a>
+            </div>
+        </div>
+
+        <div class="col-md-4 carditems">
+            <div class="card" style="width: 10rem;">
+                <img class="card-img-top" src="{% static 'image/results.png' %}" alt="img not fnd">
+                <a href="#" class="btn btn-primary cardbtn">Update Results</a>
+            </div>
+        </div>
+
+        <div class="col-md-4 carditems ">
+            <div class="card" style="width: 10rem;">
+                <img class="card-img-top" src="{% static 'image/fees.png' %}" alt="img not fnd">
+                <a href="#" class="btn btn-primary cardbtn ">Update School Fees</a>
+            </div>
+        </div>
+
+        <div class="col-md-4 carditems ">
+            <div class="card" style="width: 10rem;">
+                <img class="card-img-top" src="{% static 'image/event.png' %}" alt="img not fnd">
+                <a href="#" class="btn btn-primary cardbtn ">Upcoming Events</a>
+            </div>
+        </div>
+
+
+{% endif %}
+
+    <br>
+    <br>
+    <br>
+
+{% endblock %}

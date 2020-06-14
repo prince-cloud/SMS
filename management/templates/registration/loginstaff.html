@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %} SMS | LOGIN {% endblock title%}
+{% load static %}
+
+
+{% block content%}
+{% include 'navbar.html' %}
+<div class="container loginform">
+    <div class="row">
+        <div id="postadform">
+             <h3>STAFF LOGIN</h3>
+            {% if form.errors%}
+            <h4 id="invalidtxt">Invalid Username or Password</h4>
+            {% endif %}
+            <div class="">
+                <div class="login-page">
+                    <div class="form">
+                        <form class="login-form" method="POST" action="">
+                            <input type="text" placeholder="username" name="username" />
+                            <input type="password" placeholder="password" name="password" />
+                            
+                            {% csrf_token %}
+
+                            <button>
+                                <a href="{% url 'management:portal' %}">Login</a>
+                            </button>
+                            <small>Forgot password? <span> <a href="">Reset</a> </span></small>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block title %} SMS | STAFF PORTAL {% endblock title %}
+{% load static %}
+
+
+{% block content %}
+{% include 'navbar.html' %}
+
+<br>
+<br>
+
+<div id="intromsg" class="container">
+    <h6 class="display-4">Welcome {{ user }} </h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In voluptate delectus nisi
+            saepe molestiae ad nesciunt suscipit. Id eum totam, eaque accusantium molestiae ipsum
+            est itaque beatae non assumenda? Rem.
+        </p>
+</div>
+
+<br>
+<br>
+
+
+<div class="container">
+    <div class="row ">
+
+        <div class="col-md-4 carditems">
+            <div class="card" style="width: 10rem;">
+                <img class="card-img-top" src="{% static 'image/profile.png' %}" alt="img not fnd">
+                <a href="#" class="btn btn-primary cardbtn">Profile</a>
+            </div>
+        </div>
+
+        <div class="col-md-4 carditems">
+            <div class="card" style="width: 10rem;">
+                <img class="card-img-top" src="{% static 'image/student.jpg' %}" alt="img not fnd">
+                <a href="staffstudentlist.html" class="btn btn-primary cardbtn">Students</a>
+            </div>
+        </div>
+
+        <div class="col-md-4 carditems">
+            <div class="card" style="width: 10rem;">
+                <img class="card-img-top" src="{% static 'image/results.png' %}" alt="img not fnd">
+                <a href="#" class="btn btn-primary cardbtn">Update Results</a>
+            </div>
+        </div>
+
+        <div class="col-md-4 carditems ">
+            <div class="card" style="width: 10rem;">
+                <img class="card-img-top" src="{% static 'image/fees.png' %}" alt="img not fnd">
+                <a href="#" class="btn btn-primary cardbtn ">Update School Fees</a>
+            </div>
+        </div>
+
+        <div class="col-md-4 carditems ">
+            <div class="card" style="width: 10rem;">
+                <img class="card-img-top" src="{% static 'image/event.png' %}" alt="img not fnd">
+                <a href="#" class="btn btn-primary cardbtn ">Upcoming Events</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+
+{% endblock %}

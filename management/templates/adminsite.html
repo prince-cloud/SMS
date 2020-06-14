@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} SMS | ADMINSTRATOR {% endblock title %}
+
+
+{% block content %}
+{% include 'navbar.html' %}
+
+{% if request.user.is_superuser %}
+
+        <div class="container">
+            <h1 class="display-1">
+                YOU ARE THE ADMINSTRATOR
+            </h1>
+        </div>
+{% else %}
+
+<div class="container">
+    <h1 class="display-1">
+        You are not an ADMINSTRATOR
+    </h1>
+</div>
+
+{% endif %}
+
+{% endblock %}

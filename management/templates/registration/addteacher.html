@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block title %} SMS | ADD STAFF {% endblock title %}
+{% load crispy_forms_tags %}
+
+{% load static %}
+{% block content %}
+{% include 'navbar.html' %}
+
+<div class="container loginform">
+    <div class="row">
+        <div id="postadform">
+            <h3>ADD TEACHER</h3>
+            {% if form.errors%}
+            <h4 id="invalidtxt">Invalid Username or Password</h4>
+            {% endif %}
+            <div class="">
+                <div class="login-page">
+                    <div class="form">
+                        <form class="login-form" method="POST" action="">
+
+                            {% csrf_token %}
+
+                            <label for="username">{{ form.username.label }}</label>
+                            <span style="color: red"> {{ form.username.errors }} </span>
+                            {{ form.username }}
+
+                            <label for="username">{{ form.firstname.label }}</label>
+                            <span style="color: red"> {{ form.firstname.errors }} </span>
+                            {{ form.firstname }}
+
+                            <label for="username">{{ form.lastname.label }}</label>
+                            <span style="color: red"> {{ form.lastname.errors }} </span>
+                            {{ form.lastname }}
+
+                            <label for="username">{{ form.email.label }}</label>
+                            <span style="color: red"> {{ form.email.errors }} </span>
+                            {{ form.email }}
+
+                            <label for="username">{{ form.phone.label }}</label>
+                            <span style="color: red"> {{ form.phone.errors }} </span>
+                            {{ form.phone }}
+
+                            <label for="username">{{ form.address.label }}</label>
+                            <span style="color: red"> {{ form.address.errors }} </span>
+                            {{ form.address }}
+
+                            <span for="sex"> {{ form.sex.label }} </span>
+                            {{ form.sex }}
+
+                            <label for="username">{{ form.password1.label }}</label>
+                            <span style="color: red"> {{ form.password1.errors }} </span>
+                            {{ form.password1 }}
+
+                            <label for="username">{{ form.password2.label }}</label>
+                            <span style="color: red"> {{ form.password2.errors }} </span>
+                            {{ form.password2 }}
+
+
+
+                            <button>
+                                <a href="{% url 'management:portal' %}">ADD STAFF</a>
+                            </button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
